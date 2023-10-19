@@ -89,6 +89,10 @@ class Customers extends Entity
             $payload['check']['routing_number'] = $data['check_routing_number'];
         }
 
+        if (isset($data['integrator_id'])) {
+            $payload['integrator_id'] = $data['integrator_id'];
+        }
+
         return $payload;
     }
 
