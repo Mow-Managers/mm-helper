@@ -6,6 +6,7 @@ use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 use TechGenies\MM\Api\PayTraceApi\ACH;
 use TechGenies\MM\Api\PayTraceApi\Customers;
+use TechGenies\MM\Api\PayTraceApi\Transactions;
 use TechGenies\MM\Exceptions\PayTraceException;
 
 class PayTraceApi
@@ -15,6 +16,7 @@ class PayTraceApi
 
     public Customers $customers;
     public ACH $ach;
+    public Transactions $transactions;
 
     /**
      * PayTraceWS constructor.
@@ -42,6 +44,7 @@ class PayTraceApi
             // Entities
             $this->customers = new Customers($this->apiURL, $this->accessToken);
             $this->ach = new ACH($this->apiURL, $this->accessToken);
+            $this->transactions = new Transactions($this->apiURL, $this->accessToken);
         } catch (RequestException $e) {
             throw new PayTraceException($e->response->body(), $e->getCode());
         }
