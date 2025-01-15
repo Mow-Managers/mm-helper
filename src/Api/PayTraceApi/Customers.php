@@ -51,80 +51,71 @@ class Customers extends Entity
     {
         $payload['customer_id'] = $data['customer_id'];
 
-        if (isset($data['credit_card']['number'])) {
-            $payload['credit_card']['number'] = $data['credit_card']['number'];
+        if (isset($data['credit_card_number'])) {
+            $payload['credit_card']['number'] = $data['credit_card_number'];
         }
 
-        if (isset($data['credit_card']['expiration_date'])) {
-            $payload['credit_card']['expiration_month'] = $data['credit_card']['expiration_month'];
+        if (isset($data['credit_card_expiration_month'])) {
+            $payload['credit_card']['expiration_month'] = $data['credit_card_expiration_month'];
         }
 
-        if (isset($data['credit_card']['expiration_year'])) {
-            $payload['credit_card']['expiration_year'] = $data['credit_card']['expiration_year'];
+        if (isset($data['credit_card_expiration_year'])) {
+            $payload['credit_card']['expiration_year'] = $data['credit_card_expiration_year'];
         }
 
-        // Billing Address
-        if (isset($data['billing_address']['name'])) {
-            $payload['billing_address']['name'] = $data['billing_address']['name'];
+        if (isset($data['billing_address_name'])) {
+            $payload['billing_address']['name'] = $data['billing_address_name'];
         }
 
-        if (isset($data['billing_address']['street_address'])) {
-            $payload['billing_address']['street_address'] = $data['billing_address']['street_address'];
+        if (isset($data['billing_address_street_address'])) {
+            $payload['billing_address']['street_address'] = $data['billing_address_street_address'];
         }
 
-        if (isset($data['billing_address']['city'])) {
-            $payload['billing_address']['city'] = $data['billing_address']['city'];
+        if (isset($data['billing_address_city'])) {
+            $payload['billing_address']['city'] = $data['billing_address_city'];
         }
 
-        if (isset($data['billing_address']['state'])) {
-            $payload['billing_address']['state'] = $data['billing_address']['state'];
+        if (isset($data['billing_address_state'])) {
+            $payload['billing_address']['state'] = $data['billing_address_state'];
         }
 
-        if (isset($data['billing_address']['zip'])) {
-            $payload['billing_address']['zip'] = $data['billing_address']['zip'];
+        if (isset($data['billing_address_zip'])) {
+            $payload['billing_address']['zip'] = $data['billing_address_zip'];
         }
 
-        if (isset($data['billing_address']['county'])) {
-            $payload['billing_address']['county'] = $data['billing_address']['county'];
+        // Add billing country with US default
+        $payload['billing_address']['country'] = $data['billing_address_country'] ?? 'US';
+
+        // Add shipping address fields
+        if (isset($data['shipping_address_name'])) {
+            $payload['shipping_address']['name'] = $data['shipping_address_name'];
         }
 
-        // Set default country for billing address
-        $payload['billing_address']['country'] = $data['billing_address']['country'] ?? 'US';
-
-        // Shipping Address
-        if (isset($data['shipping_address']['name'])) {
-            $payload['shipping_address']['name'] = $data['shipping_address']['name'];
+        if (isset($data['shipping_address_street_address'])) {
+            $payload['shipping_address']['street_address'] = $data['shipping_address_street_address'];
         }
 
-        if (isset($data['shipping_address']['street_address'])) {
-            $payload['shipping_address']['street_address'] = $data['shipping_address']['street_address'];
+        if (isset($data['shipping_address_city'])) {
+            $payload['shipping_address']['city'] = $data['shipping_address_city'];
         }
 
-        if (isset($data['shipping_address']['city'])) {
-            $payload['shipping_address']['city'] = $data['shipping_address']['city'];
+        if (isset($data['shipping_address_state'])) {
+            $payload['shipping_address']['state'] = $data['shipping_address_state'];
         }
 
-        if (isset($data['shipping_address']['state'])) {
-            $payload['shipping_address']['state'] = $data['shipping_address']['state'];
+        if (isset($data['shipping_address_zip'])) {
+            $payload['shipping_address']['zip'] = $data['shipping_address_zip'];
         }
 
-        if (isset($data['shipping_address']['zip'])) {
-            $payload['shipping_address']['zip'] = $data['shipping_address']['zip'];
+        // Add shipping country with US default
+        $payload['shipping_address']['country'] = $data['shipping_address_country'] ?? 'US';
+
+        if (isset($data['check_account_number'])) {
+            $payload['check']['account_number'] = $data['check_account_number'];
         }
 
-        if (isset($data['shipping_address']['county'])) {
-            $payload['shipping_address']['county'] = $data['shipping_address']['county'];
-        }
-
-        // Set default country for shipping address
-        $payload['shipping_address']['country'] = $data['shipping_address']['country'] ?? 'US';
-
-        if (isset($data['check']['account_number'])) {
-            $payload['check']['account_number'] = $data['check']['account_number'];
-        }
-
-        if (isset($data['check']['routing_number'])) {
-            $payload['check']['routing_number'] = $data['check']['routing_number'];
+        if (isset($data['check_routing_number'])) {
+            $payload['check']['routing_number'] = $data['check_routing_number'];
         }
 
         if (isset($data['integrator_id'])) {
