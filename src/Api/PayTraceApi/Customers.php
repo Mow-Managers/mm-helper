@@ -42,6 +42,8 @@ class Customers extends Entity
     }
 
     /**
+     * Maps the given data to meet the needs of the receiving API.
+     *
      * @param array $data
      * @return array
      */
@@ -80,6 +82,33 @@ class Customers extends Entity
         if (isset($data['billing_address_zip'])) {
             $payload['billing_address']['zip'] = $data['billing_address_zip'];
         }
+
+        // Add billing country with US default
+        $payload['billing_address']['country'] = $data['billing_address_country'] ?? 'US';
+
+        // Add shipping address fields
+        if (isset($data['shipping_address_name'])) {
+            $payload['shipping_address']['name'] = $data['shipping_address_name'];
+        }
+
+        if (isset($data['shipping_address_street_address'])) {
+            $payload['shipping_address']['street_address'] = $data['shipping_address_street_address'];
+        }
+
+        if (isset($data['shipping_address_city'])) {
+            $payload['shipping_address']['city'] = $data['shipping_address_city'];
+        }
+
+        if (isset($data['shipping_address_state'])) {
+            $payload['shipping_address']['state'] = $data['shipping_address_state'];
+        }
+
+        if (isset($data['shipping_address_zip'])) {
+            $payload['shipping_address']['zip'] = $data['shipping_address_zip'];
+        }
+
+        // Add shipping country with US default
+        $payload['shipping_address']['country'] = $data['shipping_address_country'] ?? 'US';
 
         if (isset($data['check_account_number'])) {
             $payload['check']['account_number'] = $data['check_account_number'];
