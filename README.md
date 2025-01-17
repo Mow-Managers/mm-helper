@@ -8,15 +8,15 @@
 
 ## Installation
 ```bash
-composer require codepso/techgenies-mm
+composer require mowmanagers/paytrace
 php artisan vendor:publish --tag=mm-config (optional)
-composer update codepso/techgenies-mm (optional)
+composer update mowmanagers/paytrace (optional)
 ````
 
 ### Installation (Docker)
 ```bash
-docker run --rm -it -v $(pwd):/var/www codepso/php:8.0-cli-pgsql composer require codepso/techgenies-mm
-docker run --rm -it -v $(pwd):/var/www codepso/php:8.0-cli-pgsql composer update codepso/techgenies-mm
+docker run --rm -it -v $(pwd):/var/www codepso/php:8.0-cli-pgsql composer require mowmanagers/paytrace
+docker run --rm -it -v $(pwd):/var/www codepso/php:8.0-cli-pgsql composer update mowmanagers/paytrace
 ```
 
 ## Configuration
@@ -93,7 +93,7 @@ $params = [
         'expiration_year' => $validated['credit_card_expiration_year'],
     ],
     'billing_address' => [
-        'name' => 'Juan Minaya',
+        'name' => 'Mow Managers',
         'street_address' => '8320 E. West St.',
         'city' => 'Spokane',
         'state' => 'WA',
@@ -121,7 +121,7 @@ $payTraceApi->ach->vaultSale($params);
 ## Testing
 ```bash
 laravel new testing
-composer remove codepso/techgenies-mm
+composer remove mowmanagers/paytrace
 php artisan serve
 ```
 
@@ -135,8 +135,8 @@ php artisan serve
 ```
 ```bash
 composer update
-composer require codepso/techgenies-mm
-composer remove codepso/techgenies-mm (remove)
+composer require mowmanagers/paytrace
+composer remove mowmanagers/paytrace (remove)
 ```
 
 # References
