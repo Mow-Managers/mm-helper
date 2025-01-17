@@ -1,11 +1,11 @@
 {
-    "name": "codepso/techgenies-mm",
+    "name": "mowmanagers/paytrace",
     "description": "Helper for the Mow Manage project of TechGenies",
     "license": "MIT",
     "authors": [
         {
-            "name": "Juan Minaya Leon",
-            "email": "minayaleon@gmail.com"
+            "name": "Mowmanagers",
+            "email": "development@mowmanagers.com"
         }
     ],
     "type": "library",
