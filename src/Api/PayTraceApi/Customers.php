@@ -51,6 +51,10 @@ class Customers extends Entity
     {
         $payload['customer_id'] = $data['customer_id'];
 
+        if (isset($data['credit_encrypted_number'])) {
+            $payload['credit_card']['encrypted_number'] = $data['credit_encrypted_number'];
+        }
+
         if (isset($data['credit_card_number'])) {
             $payload['credit_card']['number'] = $data['credit_card_number'];
         }
@@ -120,6 +124,10 @@ class Customers extends Entity
 
         if (isset($data['integrator_id'])) {
             $payload['integrator_id'] = $data['integrator_id'];
+        }
+
+        if (isset($data['encrypted_csc'])) {
+            $payload['encrypted_csc'] = $data['encrypted_csc'];
         }
 
         return $payload;
